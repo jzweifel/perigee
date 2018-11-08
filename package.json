@@ -1,0 +1,16 @@
+{
+  "name": "perigee",
+  "version": "0.0.1",
+  "description": "A scaffolding cli for Apigee",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "apigee",
+    "scaffold",
+    "cli"
+  ],
+  "author": "Jacob Zweifel",
+  "license": "ISC"
+}
