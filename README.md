@@ -62,5 +62,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/new.ts](https://github.com/jzweifel/perigee/blob/v1.1.1/src/commands/new.ts)_
+_See code: [src/commands/new/index.ts](https://github.com/jzweifel/perigee/blob/v1.1.1/src/commands/new/index.ts)_
 <!-- commandsstop -->
