@@ -30,28 +30,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`perigee hello [FILE]`](#perigee-hello-file)
 * [`perigee help [COMMAND]`](#perigee-help-command)
-
-## `perigee hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ perigee hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ perigee hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/jzweifel/perigee/blob/v1.0.0/src/commands/hello.ts)_
+* [`perigee new`](#perigee-new)
 
 ## `perigee help [COMMAND]`
 
@@ -69,4 +49,18 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
+
+## `perigee new`
+
+Generate a new proxy
+
+```
+USAGE
+  $ perigee new
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/new.ts](https://github.com/jzweifel/perigee/blob/v1.0.0/src/commands/new.ts)_
 <!-- commandsstop -->
