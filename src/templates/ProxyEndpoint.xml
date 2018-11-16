@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="GetRoot">
+          <Description>A simple conditional flow for the root path.</Description>
+          <Condition>(proxy.pathsuffix MatchesPath "") and (request.verb = "GET")</Condition>
+          <Request/>
+          <Response/>
+        </Flow>
+        <Flow name="default">
+            <Description>A catch-all flow that will 404 for any requests that do not match any other conditional flows.</Description>
+            <Request>
+                <Step>
+                    <Name>RaiseFaultNotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath><%= basePath %></BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+    <FaultRules/>
+</ProxyEndpoint>

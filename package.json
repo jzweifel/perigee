@@ -11,6 +11,8 @@
     "@oclif/command": "^1.5.5",
     "@oclif/config": "^1.9.0",
     "@oclif/plugin-help": "^2.1.4",
+    "inquirer": "^6.2.0",
+    "lodash": "^4.17.11",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
@@ -18,6 +20,8 @@
     "@oclif/test": "^1.2.2",
     "@oclif/tslint": "^3.1.1",
     "@types/chai": "^4.1.7",
+    "@types/inquirer": "0.0.43",
+    "@types/lodash": "^4.14.118",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.0",
     "chai": "^4.2.0",

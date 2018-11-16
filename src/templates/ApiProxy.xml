@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy name="<%= apiName %>">
+    <Basepaths><%= basePath %></Basepaths>
+    <Description></Description>
+    <DisplayName><%= apiName %></DisplayName>
+    <Policies>
+      <Policy>RaiseFaultNotFound</Policy>
+    </Policies>
+    <Resources/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
