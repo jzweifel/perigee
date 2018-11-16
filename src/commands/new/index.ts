@@ -46,10 +46,10 @@ export default class New extends Command {
       raiseFaultNotFoundTemplate,
       targetEndpointTemplate
     ] = await Promise.all([
-      readFile(`${__dirname}/../templates/ApiProxy.xml`),
-      readFile(`${__dirname}/../templates/ProxyEndpoint.xml`),
-      readFile(`${__dirname}/../templates/RaiseFaultNotFound.xml`),
-      readFile(`${__dirname}/../templates/TargetEndpoint.xml`)
+      readFile(`${__dirname}/templates/ApiProxy.xml`),
+      readFile(`${__dirname}/templates/ProxyEndpoint.xml`),
+      readFile(`${__dirname}/templates/RaiseFaultNotFound.xml`),
+      readFile(`${__dirname}/templates/TargetEndpoint.xml`)
     ]).then(r => r.map(s => template(s.toString())))
 
     const apiProxy = apiProxyTemplate({apiName, basePath})
