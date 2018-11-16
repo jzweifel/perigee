@@ -1,7 +1,7 @@
 {
   "name": "perigee",
   "description": "A scaffolding cli for Apigee.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "Jacob Zweifel @jzweifel",
   "bin": {
     "perigee": "./bin/run"
