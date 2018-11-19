@@ -30,8 +30,23 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`perigee bundle`](#perigee-bundle)
 * [`perigee help [COMMAND]`](#perigee-help-command)
 * [`perigee new`](#perigee-new)
+
+## `perigee bundle`
+
+Create a proxy bundle
+
+```
+USAGE
+  $ perigee bundle
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/bundle.ts](https://github.com/jzweifel/perigee/blob/v1.1.2/src/commands/bundle.ts)_
 
 ## `perigee help [COMMAND]`
 
