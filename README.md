@@ -21,7 +21,7 @@ $ npm install -g perigee
 $ perigee COMMAND
 running command...
 $ perigee (-v|--version|version)
-perigee/1.1.2 darwin-x64 node-v10.3.0
+perigee/1.2.0 darwin-x64 node-v10.3.0
 $ perigee --help [COMMAND]
 USAGE
   $ perigee COMMAND
@@ -46,7 +46,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/bundle.ts](https://github.com/jzweifel/perigee/blob/v1.1.2/src/commands/bundle.ts)_
+_See code: [src/commands/bundle.ts](https://github.com/jzweifel/perigee/blob/v1.2.0/src/commands/bundle.ts)_
 
 ## `perigee help [COMMAND]`
 
@@ -77,5 +77,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/new.ts](https://github.com/jzweifel/perigee/blob/v1.1.2/src/commands/new.ts)_
+_See code: [src/commands/new.ts](https://github.com/jzweifel/perigee/blob/v1.2.0/src/commands/new.ts)_
 <!-- commandsstop -->
