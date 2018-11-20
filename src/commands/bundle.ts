@@ -3,27 +3,8 @@ import {ZipFile} from 'yazl'
 
 import * as fs from 'fs'
 import * as path from 'path'
-import * as util from 'util'
 
-const readdir = util.promisify(fs.readdir)
-const stat = util.promisify(fs.stat)
-
-const walk = async (dir: string, filelist: string[] = []) => {
-  const files = await readdir(dir)
-
-  for (let file of files) {
-    const filepath = path.join(dir, file)
-    const filestat = await stat(filepath)
-
-    if (filestat.isDirectory()) {
-      filelist = await walk(filepath, filelist)
-    } else {
-      filelist.push(filepath)
-    }
-  }
-
-  return filelist
-}
+import {walk} from '../util'
 
 export default class Bundle extends Command {
   static description = "Bundle a proxy directory. A proxy directory is a directory that contains an 'apiproxy' directory."
