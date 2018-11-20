@@ -7,6 +7,7 @@ import * as util from 'util'
 
 const readdir = util.promisify(fs.readdir)
 const stat = util.promisify(fs.stat)
+const exists = util.promisify(fs.exists)
 
 const walk = async (dir: string, filelist: string[] = []) => {
   const files = await readdir(dir)
@@ -33,11 +34,15 @@ export default class Bundle extends Command {
   }
 
   async run() {
-    // make sure we're in a directory that contains an 'apiproxy'
+    const folderExists = await exists('apiproxy')
+    if (!folderExists) this.error("Attempting to bundle something that isn't a proxy! Hint: an apiproxy subdirectory should exist here.")
+
     const fileList = await walk('apiproxy')
     const zipFile = new ZipFile()
     fileList.forEach(fp => zipFile.addFile(fp, fp))
-    zipFile.outputStream.pipe(fs.createWriteStream(`${path.basename(process.cwd())}.zip`)).on('close', () => this.log('done'))
+    zipFile.outputStream
+      .pipe(fs.createWriteStream(`${path.basename(process.cwd())}.zip`))
+      .on('close', () => this.log(`Successfully created bundle ${process.cwd()}/${path.basename(process.cwd())}.zip!`))
     zipFile.end()
   }
 }
