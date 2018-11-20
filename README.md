@@ -36,7 +36,7 @@ USAGE
 
 ## `perigee bundle`
 
-Create a proxy bundle
+Bundle a proxy directory. A proxy directory is a directory that contains an 'apiproxy' directory.
 
 ```
 USAGE

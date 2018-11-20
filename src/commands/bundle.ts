@@ -27,7 +27,7 @@ const walk = async (dir: string, filelist: string[] = []) => {
 }
 
 export default class Bundle extends Command {
-  static description = 'Create a proxy bundle'
+  static description = "Bundle a proxy directory. A proxy directory is a directory that contains an 'apiproxy' directory."
 
   static flags = {
     help: flags.help({char: 'h'})
