@@ -7,7 +7,6 @@ import * as util from 'util'
 
 const readdir = util.promisify(fs.readdir)
 const stat = util.promisify(fs.stat)
-const exists = util.promisify(fs.exists)
 
 const walk = async (dir: string, filelist: string[] = []) => {
   const files = await readdir(dir)
@@ -34,7 +33,7 @@ export default class Bundle extends Command {
   }
 
   async run() {
-    const folderExists = await exists('apiproxy')
+    const folderExists = fs.existsSync('apiproxy')
     if (!folderExists) this.error("Attempting to bundle something that isn't a proxy! Hint: an apiproxy subdirectory should exist here.")
 
     const fileList = await walk('apiproxy')
