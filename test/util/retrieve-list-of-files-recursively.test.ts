@@ -1,9 +1,9 @@
 import {expect} from '@oclif/test'
 import * as mockfs from 'mock-fs'
 
-import walk from '../../src/util/walk'
+import retrieveListOfFilesRecursively from '../../src/util/retrieve-list-of-files-recursively'
 
-describe('walk', () => {
+describe('retrieveListOfFilesRecursively', () => {
   afterEach(() => {
     mockfs.restore()
   })
@@ -17,7 +17,7 @@ describe('walk', () => {
         'some-file4.txt': '',
       }
     })
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.have.lengthOf(4)
   })
@@ -31,7 +31,7 @@ describe('walk', () => {
 
     const expected = ['test-dir/some-file.txt']
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.deep.equal(expected)
   })
@@ -41,7 +41,7 @@ describe('walk', () => {
       'test-dir': {}
     })
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.have.lengthOf(0)
   })
@@ -54,7 +54,7 @@ describe('walk', () => {
       }
     })
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.have.lengthOf(0)
   })
@@ -67,7 +67,7 @@ describe('walk', () => {
       }
     })
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.have.lengthOf(1)
   })
@@ -83,7 +83,7 @@ describe('walk', () => {
 
     const expected = ['test-dir/some-cool-file.mov', 'test-dir/some-file.txt', 'test-dir/some-other-file.wav']
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.deep.equal(expected)
   })
@@ -99,7 +99,7 @@ describe('walk', () => {
 
     const expected = ['test-dir/some-subdir/some-file.txt']
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.deep.equal(expected)
   })
@@ -121,7 +121,7 @@ describe('walk', () => {
 
     const expected = ['test-dir/a-file.txt', 'test-dir/some-subdir/some-file.txt', 'test-dir/some-subdir/sub-subdir/another-file.txt']
 
-    const actual = await walk('test-dir')
+    const actual = await retrieveListOfFilesRecursively('test-dir')
 
     expect(actual).to.deep.equal(expected)
   })

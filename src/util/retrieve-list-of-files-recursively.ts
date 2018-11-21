@@ -5,7 +5,7 @@ import {promisify} from 'util'
 const readdir = promisify(fs.readdir)
 const stat = promisify(fs.stat)
 
-const walk = async (dir: string, filelist: string[] = []) => {
+const retrieveListOfFilesRecursively = async (dir: string, filelist: string[] = []) => {
   const files = await readdir(dir)
 
   for (let file of files) {
@@ -13,7 +13,7 @@ const walk = async (dir: string, filelist: string[] = []) => {
     const filestat = await stat(filepath)
 
     if (filestat.isDirectory()) {
-      filelist = await walk(filepath, filelist)
+      filelist = await retrieveListOfFilesRecursively(filepath, filelist)
     } else {
       filelist.push(filepath)
     }
@@ -22,4 +22,4 @@ const walk = async (dir: string, filelist: string[] = []) => {
   return filelist
 }
 
-export default walk
+export default retrieveListOfFilesRecursively

@@ -1,3 +1,3 @@
-import walk from './walk'
+import retrieveListOfFilesRecursively from './retrieve-list-of-files-recursively'
 
-export {walk}
+export {retrieveListOfFilesRecursively}

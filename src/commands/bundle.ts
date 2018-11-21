@@ -4,7 +4,7 @@ import {ZipFile} from 'yazl'
 import * as fs from 'fs'
 import * as path from 'path'
 
-import {walk} from '../util'
+import {retrieveListOfFilesRecursively} from '../util'
 
 export default class Bundle extends Command {
   static description = "Bundle a proxy directory. A proxy directory is a directory that contains an 'apiproxy' directory."
@@ -17,7 +17,7 @@ export default class Bundle extends Command {
     const folderExists = fs.existsSync('apiproxy')
     if (!folderExists) this.error("Attempting to bundle something that isn't a proxy! Hint: an apiproxy subdirectory should exist here.")
 
-    const fileList = await walk('apiproxy')
+    const fileList = await retrieveListOfFilesRecursively('apiproxy')
     const zipFile = new ZipFile()
     fileList.forEach(fp => zipFile.addFile(fp, fp))
     zipFile.outputStream
